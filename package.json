@@ -1,0 +1,24 @@
+{
+  "name": "@mixery/node-polyfills",
+  "version": "1.0.0",
+  "description": "Web APIs polyfills for NodeJS",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "node dist/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MixeryOSS/node-polyfills.git"
+  },
+  "keywords": [
+    "polyfills",
+    "node"
+  ],
+  "author": "nahkd123",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/MixeryOSS/node-polyfills/issues"
+  },
+  "homepage": "https://github.com/MixeryOSS/node-polyfills#readme"
+}
