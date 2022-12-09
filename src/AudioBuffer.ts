@@ -17,12 +17,14 @@ export class PolyfillAudioBuffer implements AudioBuffer {
         }
     }
 
-    public copyFromChannel(destination: Float32Array, channelNumber: number, bufferOffset?: number): void {
-        destination.set(this._channels[channelNumber], bufferOffset ?? 0);
+    public copyFromChannel(destination: Float32Array, channelNumber: number, startInChannel: number = 0): void {
+        destination.set(this._channels[channelNumber].subarray(startInChannel, startInChannel + destination.length));
     }
 
-    public copyToChannel(source: Float32Array, channelNumber: number, bufferOffset?: number): void {
-        this._channels[channelNumber].set(source.subarray(bufferOffset ?? 0));
+    public copyToChannel(source: Float32Array, channelNumber: number, startInChannel: number = 0): void {
+        const copySize = this._channels[channelNumber].length - startInChannel;
+        if (copySize <= 0) return;
+        this._channels[channelNumber].set(source.subarray(0, copySize), startInChannel);
     }
 
     public getChannelData(channel: number): Float32Array {
